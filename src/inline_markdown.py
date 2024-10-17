@@ -62,7 +62,6 @@ def split_nodes_image(old_nodes):
     new_nodes = []
     for old_node in old_nodes:
         links = extract_markdown_images(old_node.text)
-        # print(links, len(links))
         splitters = []
         if len(links) > 1:
             for link in links:
