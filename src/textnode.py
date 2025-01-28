@@ -18,6 +18,7 @@ class TextNode:
         self.text_type = text_type.value
         self.url = url
 
+    # sets default behavior of equality comparison between to TextNode instances
     def __eq__(self, other) -> bool:
         if (
             self.text == other.text
@@ -28,5 +29,6 @@ class TextNode:
 
         return False
 
+    # sets print format of TextNode instances
     def __repr__(self) -> str:
         return f"TextNode({self.text}, {self.text_type}, {self.url})"
