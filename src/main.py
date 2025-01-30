@@ -1,9 +1,11 @@
-from textnode import TextNode, TextType
+from htmlnode import HTMLNode, LeafNode
+from textnode import TextNode, TextType, split_nodes_delimiter
 
 
 def main():
-    node = TextNode("This is some text", TextType.BOLD, "www.google.com")
-    print(node)
+    node = TextNode("this `is` some `code`", TextType.NORMAL)
+    new_nodes = split_nodes_delimiter([node], "`", TextType.CODE)
+    print(new_nodes)
 
 
 main()
