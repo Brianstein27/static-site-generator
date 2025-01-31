@@ -1,3 +1,4 @@
+# handles all inline markdown like text, bold, italic, code, links, images
 import re
 
 from textnode import TextNode, TextType
