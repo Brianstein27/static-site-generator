@@ -1,7 +1,7 @@
 import unittest
 
-from block_markdown import (block_to_block_type, markdown_to_blocks,
-                            markdown_to_html_node)
+from block_markdown import (block_to_block_type, extract_title,
+                            markdown_to_blocks, markdown_to_html_node)
 
 
 class TestMarkdownBlocks(unittest.TestCase):
@@ -228,6 +228,32 @@ this is paragraph text
             html,
             "<div><blockquote>This is a blockquote block</blockquote><p>this is paragraph text</p></div>",
         )
+
+    def test_extract_title_eq1(self):
+        markdown = """
+        # This is a title
+
+        This is a regular paragraph
+        This should be the same paragraph?
+
+        - List item 1
+        - List item 2
+        - List item 3
+        """
+        self.assertEqual(extract_title(markdown), "This is a title")
+
+    def test_extract_title_error1(self):
+        markdown = """
+        # This is a different title     
+
+        This is a regular paragraph
+        This should be the same paragraph?
+
+        - List item 1
+        - List item 2
+        - List item 3
+        """
+        self.assertEqual(extract_title(markdown), "This is a different title")
 
 
 if __name__ == "__main__":

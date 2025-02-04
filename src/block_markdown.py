@@ -58,6 +58,16 @@ def block_to_block_type(block):
     return "paragraph"
 
 
+def extract_title(markdown):
+    blocks = markdown_to_blocks(markdown)
+    heading_level = blocks[0].count("#")
+    if heading_level == 1:
+        heading = blocks[0].replace("#", "").strip()
+        return heading
+    else:
+        raise ValueError("No Title found")
+
+
 def markdown_to_html_node(markdown):
     blocks = markdown_to_blocks(markdown)
     html_nodes = []
