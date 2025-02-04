@@ -4,7 +4,7 @@ import shutil
 
 def static_to_public():
     delete_public_files()
-    copy_to_static("./static", "./public")
+    copy_to_public("./static", "./public")
 
 
 def delete_public_files():
@@ -23,7 +23,7 @@ def delete_public_files():
                 print("Failed to delete %s. Reason: %s" % (file_path, error))
 
 
-def copy_to_static(path, destination):
+def copy_to_public(path, destination):
     if os.path.isfile(path):
         shutil.copy(path, destination)
         print(f"copied {path} to {destination}")
@@ -34,6 +34,6 @@ def copy_to_static(path, destination):
                 print(f"copied {item} to {destination}")
             else:
                 os.mkdir(os.path.join(destination, item))
-                copy_to_static(
+                copy_to_public(
                     os.path.join(path, item), os.path.join(destination, item)
                 )
