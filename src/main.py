@@ -1,11 +1,8 @@
-from htmlnode import HTMLNode, LeafNode
-from textnode import TextNode, TextType, split_nodes_delimiter
+from static_to_public import static_to_public
 
 
 def main():
-    node = TextNode("this `is` some `code`", TextType.NORMAL)
-    new_nodes = split_nodes_delimiter([node], "`", TextType.CODE)
-    print(new_nodes)
+    static_to_public()
 
 
 main()
