@@ -82,6 +82,7 @@ def text_to_textnodes(text):
     textnodes = [TextNode(text, TextType.NORMAL)]
     textnodes = split_nodes_delimiter(textnodes, "**", TextType.BOLD)
     textnodes = split_nodes_delimiter(textnodes, "*", TextType.ITALIC)
+    textnodes = split_nodes_delimiter(textnodes, "_", TextType.ITALIC)
     textnodes = split_nodes_delimiter(textnodes, "`", TextType.CODE)
     textnodes = split_nodes_images(textnodes)
     textnodes = split_nodes_links(textnodes)
